@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <meta name="theme-color" content="#ffffff"> -->
+	<!-- <link rel="icon" href="./favicon/favicon.svg"> -->
+	<!-- <link rel="mask-icon" href="./favicon/favicon.svg" color="#000000"> -->
+	<title>Blog</title>
+	<script src="/app.bundle.js" defer></script>
+</head>
+
+<body>
+	<!-- header start -->
+	<header class="header">
+
+	</header>
+	<!-- header end -->
+
+	<!-- main start -->
+	<main class="main">
+		<div class="container w-80">
+			<div class="island my-4">
+				<div class="island__item d-flex">
+					<h2 class="mb-0">Blog</h2>
+					<button type="button" class="btn btn-primary ms-auto" id="buttonCreatePost">
+						Create post
+					</button>
+				</div>
+			</div>
+			<div class="row mb-4">
+				<div class="col-4">
+					<div class="island" style="min-height: 500px" id="posts">
+
+					</div>
+				</div>
+				<div class="col-8">
+					<div class="island">
+						<div class="island__item" style="min-height: 500px" id="post">
+							<p class="text-muted">select an article from the list</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<!-- main end -->
+
+	<!-- footer start -->
+	<footer class="footer">
+
+	</footer>
+	<!-- footer end -->
+
+	<div class="modal fade" id="formModal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Article form</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form id="form" method="POST">
+						<input type="hidden" name="id" id="id">
+						<input type="hidden" name="createdAt" id="createdAt">
+						<div class="mb-3">
+							<label for="title" class="form-label">Title</label>
+							<input type="text" class="form-control" id="title" name="title" aria-describedby="titleHelp"
+								placeholder="write some title">
+							<div id="titleHelp" class="form-text">The headline should grab attention.</div>
+						</div>
+						<div class="mb-3">
+							<label for="author" class="form-label">Author</label>
+							<input type="text" class="form-control" id="author" name="author"
+								placeholder="write the author of the article">
+						</div>
+						<div class="mb-3">
+							<label for="lead" class="form-label">Lead</label>
+							<textarea class="form-control" id="lead" rows="3" name="lead"
+								placeholder="write a short article description that reveals the essence of the title"></textarea>
+						</div>
+						<div class="mb-3">
+							<label for="content" class="form-label">Content</label>
+							<textarea class="form-control" id="content" rows="6" name="content"
+								placeholder="write a full article description"></textarea>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary" form="form">Ok</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+@import './reset';
+@import './variables';
+@import './mixin';
+@import './fonts';
+
+@import '~bootstrap/scss/bootstrap';
+
+@import './island';
+
+body {
+  background-color: rgb(178, 191, 207);
+}
+
+//  ========================================
+//  header styles start
+//  ========================================
+
+//  header styles end
+
+// ========================================
+// main styles start
+// ========================================
+
+// main styles end
+
+// ========================================
+// footer styles start
+// ========================================
+
+// footer styles end

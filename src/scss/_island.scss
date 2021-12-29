@@ -1,0 +1,19 @@
+$component: 'island';
+
+.#{$component} {
+  border-radius: 1rem;
+  background-color: #fff;
+
+  &__item {
+    position: relative;
+    padding: 0.5rem 1rem;
+
+    & + & {
+      border-top: 1px solid rgb(140, 149, 161);
+    }
+
+    a.active {
+      color: rgb(204, 108, 19);
+    }
+  }
+}
