@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid'
 import { Modal } from 'bootstrap'
-import { resetForm } from './helpers'
+import { $, resetForm } from './helpers'
 
 class Form {
   constructor(formElement) {
@@ -10,19 +10,19 @@ class Form {
   }
 
   init() {
-    this.modalElement = document.querySelector('#formModal')
-    this.buttonCreatePostElement = document.querySelector('#buttonCreatePost')
+    this.modalElement = $('#formModal')
+    this.buttonCreatePostElement = $('#buttonCreatePost')
     this.instanceModal = Modal.getOrCreateInstance(this.modalElement)
 
-    this.handleSubmitForm = this.handleSubmitForm.bind(this)
     this.handleClickButtonCreate = this.handleClickButtonCreate.bind(this)
+    this.handleSubmitForm = this.handleSubmitForm.bind(this)
     this.handleFormSetEdit = this.handleFormSetEdit.bind(this)
 
-    this.formElement.addEventListener('submit', this.handleSubmitForm)
     this.buttonCreatePostElement.addEventListener(
       'click',
       this.handleClickButtonCreate
     )
+    this.formElement.addEventListener('submit', this.handleSubmitForm)
     window.addEventListener('form:setEdit', this.handleFormSetEdit)
   }
 
@@ -44,7 +44,7 @@ class Form {
     }
 
     if (!post.id) post.id = nanoid()
-    if (!post.createdAt) post.createdAt = new Date()
+    if (!post.createdAt) post.createdAt = new Date().toString().slice(4, 21)
 
     await this.sendPost(post)
     resetForm(this.formElement)

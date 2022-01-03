@@ -12,6 +12,10 @@ $component: 'island';
       border-top: 1px solid rgb(140, 149, 161);
     }
 
+    a {
+      text-decoration: none;
+    }
+
     a.active {
       color: rgb(204, 108, 19);
     }

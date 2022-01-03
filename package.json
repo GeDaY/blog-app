@@ -2,7 +2,7 @@
   "name": "blog-app",
   "version": "1.0.0",
   "description": "Run build `npm run build`",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "build": "webpack",
     "dev": "webpack --watch --progress",
@@ -27,6 +27,8 @@
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.2.0",
+    "favicons": "^6.2.2",
+    "favicons-webpack-plugin": "^5.0.2",
     "nodemon": "^2.0.15",
     "prettier": "2.5.1",
     "sass": "^1.45.1",

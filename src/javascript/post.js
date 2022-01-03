@@ -19,12 +19,8 @@ class Post {
 
     window.addEventListener('post:click', this.handlePostClick)
     window.addEventListener('post:clear', this.handlePostClear)
-    this.containerElement.addEventListener('click', this.handleClickDelete)
     this.containerElement.addEventListener('click', this.handleClickEdit)
-  }
-
-  handlePostClear() {
-    this.clear()
+    this.containerElement.addEventListener('click', this.handleClickDelete)
   }
 
   async handlePostClick({ detail }) {
@@ -33,6 +29,10 @@ class Post {
     const data = await this.getPost(id)
 
     this.render(data)
+  }
+
+  handlePostClear() {
+    this.clear()
   }
 
   async handleClickEdit({ target }) {
@@ -64,16 +64,17 @@ class Post {
     }
   }
 
-  async removePost(id) {
-    const url = `/api/posts/${id}`
-
-    const response = await fetch(url, { method: 'DELETE' })
-    const post = await response.json()
-
-    return post
-  }
-
-  getTemplatePost({ title, lead, content, author, createdAt, id }) {
+  getTemplatePost({
+    title,
+    lead,
+    content,
+    author,
+    createdAt,
+    id,
+    movieTitle,
+    filmYear,
+    filmDirector,
+  }) {
     const html = marked.parse(content)
     return `
 		<h2>${title}</h2>
@@ -82,8 +83,15 @@ class Post {
 		<div>
 			${html}
 		</div>
+		
+		<div class="mb-4 text-center">
+			<h5>What movie is this article about:</h5>
+			title: ${movieTitle}<br>
+			release year: ${filmYear}<br>
+			director: ${filmDirector}<br>
+		</div>
 
-		<div class="text-muted mb-4">
+		<div class="text-muted mb-4 text-end">
 			Author: ${author}
 			<br>
 			Created at: ${createdAt}
@@ -98,6 +106,15 @@ class Post {
     const url = `/api/posts/${id}`
 
     const response = await fetch(url)
+    const post = await response.json()
+
+    return post
+  }
+
+  async removePost(id) {
+    const url = `/api/posts/${id}`
+
+    const response = await fetch(url, { method: 'DELETE' })
     const post = await response.json()
 
     return post

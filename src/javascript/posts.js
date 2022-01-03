@@ -35,16 +35,6 @@ class Posts {
     }
   }
 
-  activatePost(element) {
-    if (this.currentPost) {
-      this.currentPost.classList.remove('active')
-    }
-
-    element.classList.add('active')
-
-    this.currentPost = element
-  }
-
   getTemplatePost({ title, createdAt, id }) {
     return `
   	<div class="island__item">
@@ -62,6 +52,16 @@ class Posts {
     })
 
     return result.join('')
+  }
+
+  activatePost(element) {
+    if (this.currentPost) {
+      this.currentPost.classList.remove('active')
+    }
+
+    element.classList.add('active')
+
+    this.currentPost = element
   }
 
   async getPosts() {

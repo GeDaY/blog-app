@@ -5,10 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- <meta name="theme-color" content="#ffffff"> -->
-	<!-- <link rel="icon" href="./favicon/favicon.svg"> -->
-	<!-- <link rel="mask-icon" href="./favicon/favicon.svg" color="#000000"> -->
-	<title>Blog</title>
+	<title>KinoBlog</title>
 	<script src="/app.bundle.js" defer></script>
 </head>
 
@@ -21,10 +18,10 @@
 
 	<!-- main start -->
 	<main class="main">
-		<div class="container w-80">
+		<div class="container">
 			<div class="island my-4">
 				<div class="island__item d-flex">
-					<h2 class="mb-0">Blog</h2>
+					<h2 class="mb-0">KinoBlog</h2>
 					<button type="button" class="btn btn-primary ms-auto" id="buttonCreatePost">
 						Create post
 					</button>
@@ -58,7 +55,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title">Article form</h5>
+					<h5 class="modal-title">Article</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
@@ -68,23 +65,39 @@
 						<div class="mb-3">
 							<label for="title" class="form-label">Title</label>
 							<input type="text" class="form-control" id="title" name="title" aria-describedby="titleHelp"
-								placeholder="write some title">
+								placeholder="write some title (required)" required>
 							<div id="titleHelp" class="form-text">The headline should grab attention.</div>
 						</div>
 						<div class="mb-3">
 							<label for="author" class="form-label">Author</label>
 							<input type="text" class="form-control" id="author" name="author"
-								placeholder="write the author of the article">
+								placeholder="write the author of the article (required)" required>
 						</div>
 						<div class="mb-3">
 							<label for="lead" class="form-label">Lead</label>
 							<textarea class="form-control" id="lead" rows="3" name="lead"
 								placeholder="write a short article description that reveals the essence of the title"></textarea>
 						</div>
-						<div class="mb-3">
+						<div class="mb-4">
 							<label for="content" class="form-label">Content</label>
 							<textarea class="form-control" id="content" rows="6" name="content"
-								placeholder="write a full article description"></textarea>
+								placeholder="write a full article description (required)" required></textarea>
+						</div>
+						<label class="form-label">Information about the film</label>
+						<div class="form-floating mb-3">
+							<input type="text" class="form-control" id="movieTitle" name="movieTitle" placeholder="movie title"
+								required>
+							<label class="text-muted" for="movieTitle">title (required)</label>
+						</div>
+						<div class="form-floating mb-3">
+							<input type="number" class="form-control" id="filmYear" name="filmYear" placeholder="film release year"
+								min="1880" max="2022" required>
+							<label class="text-muted" for="filmYear">release year (required)</label>
+						</div>
+						<div class="form-floating mb-3">
+							<input type="text" class="form-control" id="filmDirector" name="filmDirector" placeholder="film director"
+								required>
+							<label class="text-muted" for="filmDirector">director (required)</label>
 						</div>
 					</form>
 				</div>
